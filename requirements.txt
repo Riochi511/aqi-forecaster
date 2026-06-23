@@ -1,6 +1,3 @@
-fastapi
-uvicorn
 prophet
 pandas
 numpy
-pickle5
