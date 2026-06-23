@@ -19,7 +19,7 @@ with open("model.pkl", "rb") as f:
 
 # ── Forecast function ─────────────────────────────────────────────────────────
 def forecast_aqi(days: int):
-    future = model.make_future_dataframe(periods=days * 24, freq='H')
+    future = model.make_future_dataframe(periods=days * 24, freq='h')
     forecast = model.predict(future)
     result = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(days * 24)
     result['yhat']       = np.clip(result['yhat'],       0, None).round(1)
