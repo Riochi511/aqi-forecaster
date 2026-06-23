@@ -1,8 +1,17 @@
+import os
 import pickle
 import numpy as np
 import pandas as pd
 import gradio as gr
-from prophet import Prophet
+import gdown
+
+# Download model from Google Drive if not present
+if not os.path.exists("model.pkl"):
+    gdown.download(
+        "https://drive.google.com/uc?id=1OyEqZj3pbNXjG1U3kBgt1l6KW1osPd3e",
+        "model.pkl",
+        quiet=False
+    )
 
 # Load model
 with open("model.pkl", "rb") as f:
